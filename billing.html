@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Billing - Hospital Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="nav-links">
+        <a href="dashboard.html">Home</a>
+        <a href="patients.html">Patients</a>
+        <a href="search.html">Search</a>
+        <a href="billing.html">Billing</a>
+      </div>
+      <div class="nav-logout">
+        <a href="index.html" id="logout">Logout</a>
+      </div>
+    </div>
+    <div class="container billing-container">
+      <h1>Patient Billing</h1>
+      <div class="card">
+        <form id="billing-form">
+          <div class="form-group">
+            <label for="billing-patient-id">Patient ID</label>
+            <select id="billing-patient-id" name="billing-patient-id" required>
+              <!-- Options will be populated by JavaScript -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="billing-amount">Amount</label>
+            <input
+              type="number"
+              id="billing-amount"
+              name="billing-amount"
+              required
+            />
+          </div>
+          <button type="submit">Generate Bill</button>
+        </form>
+      </div>
+
+      <h2>Generated Bills</h2>
+      <div class="card">
+        <table id="bills-table">
+          <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Patient Name</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Bills will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Edit Bill Modal -->
+    <div id="edit-bill-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeEditModal()">&times;</span>
+        <h2>Edit Bill</h2>
+        <form id="edit-bill-form">
+          <input type="hidden" id="edit-bill-index" />
+          <input type="hidden" id="edit-bill-patient-id" />
+          <div class="form-group">
+            <label for="edit-bill-amount">Amount</label>
+            <input
+              type="number"
+              id="edit-bill-amount"
+              name="edit-bill-amount"
+              required
+            />
+          </div>
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="billing.js"></script>
+  </body>
+</html>
